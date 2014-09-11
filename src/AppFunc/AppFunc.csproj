@@ -53,7 +53,7 @@
     <Compile Include="Configuration\IAppFuncConfigurator.cs" />
     <Compile Include="DependencyResolution\IApplicationConfiguration.cs" />
     <Compile Include="DependencyResolution\IDependencyResolver.cs" />
-    <Compile Include="IHandle.cs" />
+    <Compile Include="IHandlers.cs" />
     <Compile Include="IMessages.cs" />
     <Compile Include="IMediator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
