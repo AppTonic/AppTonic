@@ -1,5 +1,5 @@
 ﻿using System;
-using AppFunc.DependencyResolution;
+using AppFunc.Configuration;
 using Microsoft.Practices.Unity;
 
 namespace AppFunc.Unity

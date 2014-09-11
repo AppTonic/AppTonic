@@ -7,10 +7,9 @@ open Fake.AssemblyInfoFile
 RestorePackages()
 
 type Project = { name: string;  authors: List<string>; description: string; summary: string; tags: string}
+
 let authors = ["Craig Smitham"]
 
-
-// The project name should be the same as the project directory
 let appFunc= { 
     name = "AppFunc"; 
     authors = authors; 
@@ -57,15 +56,14 @@ let projectPackagingDirs =  projects |> List.map(fun p -> packagingRoot @@ p.nam
 
 let buildNumber = environVarOrDefault "APPVEYOR_BUILD_NUMBER" "0"
 // APPVEYOR_BUILD_VERSION:  MAJOR.MINOR.PATCH.BUILD_NUMBER
-let buildVersionDefault = "0.0.1.0"
+let buildVersionDefault = "0.0.2.0"
 let buildVersion = environVarOrDefault "APPVEYOR_BUILD_VERSION" buildVersionDefault
 let majorMinorPatch = split '.' buildVersion  |> Seq.take(3) |> Seq.toArray |> (fun versions -> String.Join(".", versions))
 let assemblyVersion = majorMinorPatch
 let assemblyFileVersion = buildVersion
-let environment = environVarOrDefault "CI" "local"
-let isCI= environment <> "local"
-let packageVersion = if isCI then majorMinorPatch + "-ci" + buildNumber else  majorMinorPatch
-    
+let versionSuffix = getBuildParamOrDefault "versionsuffix" ("ci" + buildNumber)
+let isRelease = hasBuildParam "release" 
+let packageVersion = if isRelease then majorMinorPatch else majorMinorPatch + "-" + versionSuffix 
 
 // Targets
 Target "Clean" (fun _ -> 
@@ -138,7 +136,7 @@ Target "CreateSimpleInjectorPackage" (fun _ ->
     createNuGetPackage simpleInjector (withPackage "SimpleInjector")
 )
 Target "CreateStructureMapPackage" (fun _ -> 
-    createNuGetPackage structureMap (withPackage "StructureMap")
+    createNuGetPackage structureMap (withPackage "structuremap")
 )
 
 
@@ -167,6 +165,9 @@ Target "Default" DoNothing
     ==>"CreateSimpleInjectorPackage"
         ==> "CreatePackages"
 
+"BuildApp" 
+    ==>"CreateStructureMapPackage"
+        ==> "CreatePackages"
 
 "BuildApp" 
     ==>"CreatePackages"

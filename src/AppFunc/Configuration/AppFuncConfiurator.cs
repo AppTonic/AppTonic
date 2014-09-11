@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AppFunc.Configuration.Internal;
-using AppFunc.DependencyResolution;
 
 namespace AppFunc.Configuration
 {

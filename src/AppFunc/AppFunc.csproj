@@ -51,8 +51,7 @@
     <Compile Include="Configuration\Internal\LambdaRequestResponseHandler.cs" />
     <Compile Include="Configuration\Internal\Unit.cs" />
     <Compile Include="Configuration\IAppFuncConfigurator.cs" />
-    <Compile Include="DependencyResolution\IApplicationConfiguration.cs" />
-    <Compile Include="DependencyResolution\IDependencyResolver.cs" />
+    <Compile Include="Configuration\IDependencyResolver.cs" />
     <Compile Include="IHandlers.cs" />
     <Compile Include="IMessages.cs" />
     <Compile Include="IMediator.cs" />

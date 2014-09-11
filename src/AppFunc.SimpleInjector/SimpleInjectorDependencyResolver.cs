@@ -1,5 +1,5 @@
 ﻿using System;
-using AppFunc.DependencyResolution;
+using AppFunc.Configuration;
 using SimpleInjector;
 
 namespace AppFunc.SimpleInjector
