@@ -1,0 +1,25 @@
+#OS junk files
+[Tt]humbs.db
+*.DS_Store
+
+packaging
+testresults
+
+[Bb]in
+[Oo]bj
+[Tt]est[Rr]esults
+*.suo
+*.user
+*.[Cc]ache
+*[Rr]esharper*
+packages
+_[Ss]cripts
+*.exe
+*.dll
+*.nupkg
+*.ncrunchsolution
+*.dot[Cc]over
+*.vsp
+*.psess
+*.orig
+ .sass-cache
