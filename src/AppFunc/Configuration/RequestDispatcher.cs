@@ -5,7 +5,7 @@ using AppFunc.Configuration.Internal;
 
 namespace AppFunc.Configuration
 {
-    public class RequestDispatcher : IMediator
+    public class RequestDispatcher : IAppMediator
     {
         private readonly IDependencyResolver _dependencyResolver;
         private readonly bool _hasDependencyResolver;

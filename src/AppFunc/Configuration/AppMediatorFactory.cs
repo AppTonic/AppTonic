@@ -2,7 +2,7 @@ using System;
 
 namespace AppFunc.Configuration
 {
-    public static class AppFuncFactory
+    public static class AppMediatorFactory
     {
         public static IMediator Create(Action<IAppFuncConfigurator> config = null)
         {

@@ -2,7 +2,7 @@
 
 namespace AppFunc
 {
-    public interface IMediator
+    public interface IAppMediator
     {
         TResponse Handle<TRequest, TResponse>(TRequest request) where TRequest : IRequest<TResponse>;
         void Handle<TRequest>(TRequest request) where TRequest : IRequest;

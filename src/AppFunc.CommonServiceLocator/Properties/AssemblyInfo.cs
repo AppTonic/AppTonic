@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AppFunc.SimpleInjector")]
+[assembly: AssemblyTitle("AppFunc.CommonServiceLocator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AppFunc.SimpleInjector")]
+[assembly: AssemblyProduct("AppFunc.CommonServiceLocator")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("82ea17b2-643b-4206-bc1e-e431cc9b4bcb")]
+[assembly: Guid("e9ea2e31-f5ac-4449-b810-cb6d08ae3b1b")]
 
 // Version information for an assembly consists of the following four values:
 //
