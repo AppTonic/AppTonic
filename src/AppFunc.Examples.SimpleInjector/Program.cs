@@ -1,7 +1,8 @@
 ﻿using System;
 using AppFunc.CommonServiceLocator;
+using AppFunc.Examples.Shared;
+using AppFunc.Examples.Shared.Data;
 using AppFunc.Examples.Shared.Domain;
-using AppFunc.Examples.Shared.Services;
 using CommonServiceLocator.SimpleInjectorAdapter;
 using SimpleInjector.Extensions;
 using SimpleInjector;
@@ -14,8 +15,10 @@ namespace AppFunc.Examples.SimpleInjector
         static void Main()
         {
             var container = new Container();
-            container.RegisterManyForOpenGeneric(typeof(IHandle<>), typeof(UserService).Assembly);
-            //container.RegisterTypes(AllClasses.FromAssemblies(typeof(UserService).Assembly), WithMappings.FromAllInterfaces);
+            container.Register<IUserRepository, InMemoryUserRepository>();
+            container.Register<ILogger, ConsoleLogger>();
+            container.RegisterManyForOpenGeneric(typeof(IHandle<>), AppDomain.CurrentDomain.GetAssemblies());
+            container.RegisterDecorator(typeof(IHandle<>), typeof(LoggingDecorator<>));
 
             var simpleInjectorServiceLocatorAdapter = new SimpleInjectorServiceLocatorAdapter(container);
 
