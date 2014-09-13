@@ -4,7 +4,7 @@ namespace AppFunc.Configuration
 {
     public static class AppMediatorFactory
     {
-        public static IMediator Create(Action<IAppFuncConfigurator> config = null)
+        public static IAppMediator Create(Action<IAppFuncConfigurator> config = null)
         {
             var configurator = new AppFuncConfiurator();
             if (config != null)

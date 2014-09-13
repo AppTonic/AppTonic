@@ -81,7 +81,7 @@ public class Program
 
         AppMediator.Initialize(app =>
         {
-            app.UseDependencyResolver();
+            app.UseDependencyResolver(new );
         });
 
 

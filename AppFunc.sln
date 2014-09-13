@@ -16,17 +16,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		SolutionInfo.cs = SolutionInfo.cs
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{4D4E6BAF-6D65-4413-A791-77A711A6120B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppFunc.Autofac", "src\AppFunc.Autofac\AppFunc.Autofac.csproj", "{42DDBE34-24C5-4AF7-9B8D-88C3FFE93126}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppFunc.SimpleInjector", "src\AppFunc.SimpleInjector\AppFunc.SimpleInjector.csproj", "{2B9DB824-FBA5-48BF-ABB3-579C5BA3077B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppFunc.StructureMap", "src\AppFunc.StructureMap\AppFunc.StructureMap.csproj", "{943746DB-CD60-4ECF-B2A5-B30562DA52D5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppFunc.Unity", "src\AppFunc.Unity\AppFunc.Unity.csproj", "{58F3A9BC-24C1-4F91-8070-4534A5D6E27C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{4D4E6BAF-6D65-4413-A791-77A711A6120B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppFunc.Tests", "src\AppFunc.Tests\AppFunc.Tests.csproj", "{66DB1D26-0401-45C1-832A-3162F755EA0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppFunc.CommonServiceLocator", "src\AppFunc.CommonServiceLocator\AppFunc.CommonServiceLocator.csproj", "{C0F11F1B-AE2C-4655-951B-B5593D9373A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,34 +32,16 @@ Global
 		{F3080FA9-CAC1-4B5E-B7A2-DD305E5BB0E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3080FA9-CAC1-4B5E-B7A2-DD305E5BB0E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3080FA9-CAC1-4B5E-B7A2-DD305E5BB0E5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{42DDBE34-24C5-4AF7-9B8D-88C3FFE93126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{42DDBE34-24C5-4AF7-9B8D-88C3FFE93126}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{42DDBE34-24C5-4AF7-9B8D-88C3FFE93126}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{42DDBE34-24C5-4AF7-9B8D-88C3FFE93126}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B9DB824-FBA5-48BF-ABB3-579C5BA3077B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B9DB824-FBA5-48BF-ABB3-579C5BA3077B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B9DB824-FBA5-48BF-ABB3-579C5BA3077B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B9DB824-FBA5-48BF-ABB3-579C5BA3077B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{943746DB-CD60-4ECF-B2A5-B30562DA52D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{943746DB-CD60-4ECF-B2A5-B30562DA52D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{943746DB-CD60-4ECF-B2A5-B30562DA52D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{943746DB-CD60-4ECF-B2A5-B30562DA52D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{58F3A9BC-24C1-4F91-8070-4534A5D6E27C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58F3A9BC-24C1-4F91-8070-4534A5D6E27C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58F3A9BC-24C1-4F91-8070-4534A5D6E27C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58F3A9BC-24C1-4F91-8070-4534A5D6E27C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66DB1D26-0401-45C1-832A-3162F755EA0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{66DB1D26-0401-45C1-832A-3162F755EA0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66DB1D26-0401-45C1-832A-3162F755EA0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66DB1D26-0401-45C1-832A-3162F755EA0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0F11F1B-AE2C-4655-951B-B5593D9373A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0F11F1B-AE2C-4655-951B-B5593D9373A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0F11F1B-AE2C-4655-951B-B5593D9373A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0F11F1B-AE2C-4655-951B-B5593D9373A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{42DDBE34-24C5-4AF7-9B8D-88C3FFE93126} = {4D4E6BAF-6D65-4413-A791-77A711A6120B}
-		{2B9DB824-FBA5-48BF-ABB3-579C5BA3077B} = {4D4E6BAF-6D65-4413-A791-77A711A6120B}
-		{943746DB-CD60-4ECF-B2A5-B30562DA52D5} = {4D4E6BAF-6D65-4413-A791-77A711A6120B}
-		{58F3A9BC-24C1-4F91-8070-4534A5D6E27C} = {4D4E6BAF-6D65-4413-A791-77A711A6120B}
 	EndGlobalSection
 EndGlobal

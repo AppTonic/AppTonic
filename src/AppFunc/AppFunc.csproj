@@ -42,9 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\AppFunc.cs" />
+    <Compile Include="AppMediator.cs" />
     <Compile Include="Configuration\AppFuncConfiurator.cs" />
-    <Compile Include="Configuration\AppFuncFactory.cs" />
+    <Compile Include="Configuration\AppMediatorFactory.cs" />
     <Compile Include="Configuration\Internal\LambdaAsyncRequestHandler.cs" />
     <Compile Include="Configuration\Internal\LambdaAsyncRequestResponseHandler.cs" />
     <Compile Include="Configuration\Internal\LambdaRequestHandler.cs" />
@@ -54,7 +54,7 @@
     <Compile Include="Configuration\IDependencyResolver.cs" />
     <Compile Include="IHandlers.cs" />
     <Compile Include="IMessages.cs" />
-    <Compile Include="IMediator.cs" />
+    <Compile Include="IAppMediator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Configuration\RequestDispatcher.cs" />
   </ItemGroup>
