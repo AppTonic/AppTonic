@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using AppFunc.CommonServiceLocator;
+using AppFunc.Configuration;
 using AppFunc.Examples.Shared.Domain;
 using AppFunc.Examples.Shared.Services;
 using Microsoft.Practices.Unity;
@@ -12,11 +14,11 @@ namespace AppFunc.Examples.Unity
         {
             var container = new UnityContainer();
             container.RegisterTypes(AllClasses.FromAssemblies(typeof(UserService).Assembly), WithMappings.FromAllInterfaces);
-            var serviceLocator = new UnityServiceLocator(container);
+            var unityServiceLocator = new UnityServiceLocator(container);
 
-            AppMediator.Initialize(app =>
+            AppDispatcher.Initialize(app =>
             {
-                app.UseCommonServiceLocator(serviceLocator);
+                app.UseCommonServiceLocator(unityServiceLocator);
             });
 
             var request = new CreateUserRequest
@@ -27,9 +29,26 @@ namespace AppFunc.Examples.Unity
                 WebsiteUrl = "jsmith.co"
             };
 
-            AppMediator.Handle(request);
+            AppDispatcher.Handle(request);
 
             Console.ReadLine();
+        }
+    }
+
+    public class LoggingDecorator<TRequest> : IHandle<TRequest> where TRequest : IRequest
+    {
+        private readonly IHandle<TRequest> _inner;
+
+        public LoggingDecorator(IHandle<TRequest> inner)
+        {
+            _inner = inner;
+        }
+
+        public void Handle(TRequest request)
+        {
+            Console.WriteLine("Logging Decorator: About to handle request");
+            _inner.Handle(request);
+            Console.WriteLine("Logging Decorator: Finished to handlin request");
         }
     }
 }

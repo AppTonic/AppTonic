@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AppFunc")]
+[assembly: AssemblyTitle("AppFunc.Examples.SimpleInjector")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AppDispatcher")]
+[assembly: AssemblyProduct("AppFunc.Examples.SimpleInjector")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6a4532d1-e239-4dc1-9450-de2fc92592d6")]
+[assembly: Guid("52445a8d-7e48-405a-9aef-cfcbef06aaa1")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -6,4 +6,9 @@ namespace AppFunc.Examples.Shared.Domain
     {
         public Guid UserId { get; set; }
     }
+
+    public class GetUserAsyncRequest : IAsyncRequest<User>
+    {
+        public Guid UserId { get; set; }
+    }
 }

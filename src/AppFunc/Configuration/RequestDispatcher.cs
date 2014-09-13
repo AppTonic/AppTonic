@@ -5,17 +5,21 @@ using AppFunc.Configuration.Internal;
 
 namespace AppFunc.Configuration
 {
-    public class RequestDispatcher : IAppMediator
+    public class RequestDispatcher : IAppDispatcher
     {
         private readonly IDependencyResolver _dependencyResolver;
         private readonly bool _hasDependencyResolver;
         private readonly Dictionary<Type, Dictionary<Type, object>> _handlers;
+        private readonly Func<Action, Action> _buildPipeline;
+        private readonly bool _hasPipeline;
 
-        public RequestDispatcher(IDependencyResolver dependencyResolver, Dictionary<Type, Dictionary<Type, object>> handlers)
+        public RequestDispatcher(IDependencyResolver dependencyResolver, Dictionary<Type, Dictionary<Type, object>> handlers, Func<Action, Action> buildPipeline)
         {
             _dependencyResolver = dependencyResolver;
             _hasDependencyResolver = _dependencyResolver != null;
             _handlers = handlers;
+            _buildPipeline = buildPipeline;
+            _hasPipeline = _buildPipeline != null;
         }
 
         private THandler ResolveHandler<TRequest, TResponse, THandler>() where THandler : class
@@ -39,22 +43,46 @@ namespace AppFunc.Configuration
 
         public TResponse Handle<TRequest, TResponse>(TRequest request) where TRequest : IRequest<TResponse>
         {
-            return ResolveHandler<TRequest, TResponse, IHandle<TRequest, TResponse>>().Handle(request);
+            TResponse response = default(TResponse);
+            TryExecutePipeline(() =>
+            {
+                response = ResolveHandler<TRequest, TResponse, IHandle<TRequest, TResponse>>().Handle(request);
+            });
+            return response;
         }
 
         public Task<TResponse> HandleAsync<TRequest, TResponse>(TRequest request) where TRequest : IAsyncRequest<TResponse>
         {
-            return ResolveHandler<TRequest, Task<TResponse>, IHandleAsync<TRequest, TResponse>>().HandleAsync(request);
+            Task<TResponse> response = null;
+            TryExecutePipeline(() =>
+            {
+                response = ResolveHandler<TRequest, Task<TResponse>, IHandleAsync<TRequest, TResponse>>().HandleAsync(request);
+            });
+            return response;
         }
 
         public void Handle<TRequest>(TRequest request) where TRequest : IRequest
         {
-            ResolveHandler<TRequest, Unit, IHandle<TRequest>>().Handle(request);
+            TryExecutePipeline(() => ResolveHandler<TRequest, Unit, IHandle<TRequest>>().Handle(request));
         }
 
         public Task HandleAsync<TRequest>(TRequest request) where TRequest : IAsyncRequest
         {
-            return ResolveHandler<TRequest, Task, IHandleAsync<TRequest>>().HandleAsync(request);
+            Task result = null;
+            TryExecutePipeline(() =>
+            {
+                result = ResolveHandler<TRequest, Task, IHandleAsync<TRequest>>().HandleAsync(request);
+            });
+            return result;
+        }
+
+        private void TryExecutePipeline(Action handle)
+        {
+            if (_hasPipeline)
+                _buildPipeline(handle)();
+            else
+                handle();
+
         }
     }
 }

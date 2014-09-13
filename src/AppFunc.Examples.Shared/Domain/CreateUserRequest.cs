@@ -9,4 +9,5 @@
         public string EmailAddress { get; set; }
         public string WebsiteUrl { get; set; }
     }
+
 }

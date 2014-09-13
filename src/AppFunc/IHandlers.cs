@@ -23,6 +23,9 @@ namespace AppFunc
     {
         Task<TResponse> HandleAsync(TRequest request);
     }
+
+
+
 }
 
 

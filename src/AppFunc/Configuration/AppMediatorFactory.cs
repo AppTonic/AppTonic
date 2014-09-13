@@ -4,9 +4,9 @@ namespace AppFunc.Configuration
 {
     public static class AppMediatorFactory
     {
-        public static IAppMediator Create(Action<IAppFuncConfigurator> config = null)
+        public static IAppDispatcher Create(Action<IAppDispatcherConfigurator> config = null)
         {
-            var configurator = new AppFuncConfiurator();
+            var configurator = new AppDispatcherConfigurator();
             if (config != null)
                 config(configurator);
             return configurator.BuildRequestDispatcher();

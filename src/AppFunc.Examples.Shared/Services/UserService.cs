@@ -1,5 +1,4 @@
-﻿using System;
-using AppFunc.Examples.Shared.Domain;
+﻿using AppFunc.Examples.Shared.Domain;
 
 namespace AppFunc.Examples.Shared.Services
 {

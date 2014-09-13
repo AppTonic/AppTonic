@@ -4,21 +4,21 @@ using AppFunc.Configuration;
 
 namespace AppFunc
 {
-    public static class AppMediator
+    public static class AppDispatcher
     {
-        private static IAppMediator _instance;
+        private static IAppDispatcher _instance;
 
-        public static void Initialize(Action<IAppFuncConfigurator> config = null)
+        public static void Initialize(Action<IAppDispatcherConfigurator> config = null)
         {
             _instance = AppMediatorFactory.Create(config);
         }
 
-        private static IAppMediator Instance
+        private static IAppDispatcher Instance
         {
             get
             {
                 if (_instance == null)
-                    throw new InvalidOperationException("You must call AppMediator.Initialize before using it.");
+                    throw new InvalidOperationException("You must call AppDispatcher.Initialize before using it.");
 
                 return _instance;
             }
