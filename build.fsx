@@ -17,35 +17,15 @@ let appFunc= {
     description ="Ultralight framework for building SOLID Application Services.";
     tags = "Messaging Functional DDD Services" }
 
-let autofac = { 
-    name = "AppFunc.Autofac"; 
+let csl = { 
+    name = "AppFunc.CommonServiceLocator"; 
     authors = authors; 
     summary = "";
-    description = "Autofac integration for AppFunc";
+    description = "Common Service Locator integration for AppFunc";
     tags = "Autofac IoC " + appFunc.tags }
 
-let simpleInjector= { 
-    name = "AppFunc.SimpleInjector"; 
-    authors = authors; 
-    summary = "";
-    description = "SimpleInjector integration for AppFunc";
-    tags = "SimpleInjector IoC " + appFunc.tags }
 
-let structureMap= { 
-    name = "AppFunc.StructureMap"; 
-    authors = authors; 
-    summary = "";
-    description = "StructureMap integration for AppFunc";
-    tags = "StructureMap IoC " + appFunc.tags }
-
-let unity = { 
-    name = "AppFunc.Unity"; 
-    authors = authors; 
-    summary = "";
-    description = "Unity integration for AppFunc";
-    tags = "Unity IoC " + appFunc.tags }
-
-let projects = [ appFunc; autofac; simpleInjector; structureMap; unity  ]
+let projects = [ appFunc; csl  ]
 
 let buildMode = getBuildParamOrDefault "buildMode" "Release"
 let testResultsDir = "./testresults"
@@ -126,17 +106,8 @@ Target "CreateCorePackage" (fun _ ->
     createNuGetPackage appFunc useDefaults
 )
 
-Target "CreateAutofacPackage" (fun _ -> 
-    createNuGetPackage autofac (withPackage "Autofac")
-)
-Target "CreateUnityPackage" (fun _ -> 
-    createNuGetPackage unity (withPackage "Unity")
-)
-Target "CreateSimpleInjectorPackage" (fun _ -> 
-    createNuGetPackage simpleInjector (withPackage "SimpleInjector")
-)
-Target "CreateStructureMapPackage" (fun _ -> 
-    createNuGetPackage structureMap (withPackage "structuremap")
+Target "CreateCommonServiceLocatorPackage" (fun _ -> 
+    createNuGetPackage csl (withPackage "CommonServiceLocator")
 )
 
 
@@ -153,21 +124,9 @@ Target "Default" DoNothing
         ==> "CreatePackages"
 
 "BuildApp" 
-    ==>"CreateAutofacPackage"
+    ==>"CreateCommonServiceLocatorPackage"
         ==> "CreatePackages"
-
         
-"BuildApp" 
-    ==>"CreateUnityPackage"
-        ==> "CreatePackages"
-
-"BuildApp" 
-    ==>"CreateSimpleInjectorPackage"
-        ==> "CreatePackages"
-
-"BuildApp" 
-    ==>"CreateStructureMapPackage"
-        ==> "CreatePackages"
 
 "BuildApp" 
     ==>"CreatePackages"

@@ -30,5 +30,9 @@ namespace AppFunc.Examples.Shared.Data
             // Not how you would implement async at all!
             return Task.FromResult(_users.FirstOrDefault());
         }
+
+        public void Dispose()
+        {
+        }
     }
 }

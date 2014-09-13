@@ -1,8 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace AppFunc.Examples.Shared.Domain
 {
-    public interface IUserRepository
+    public interface IUserRepository : IDisposable
     {
         void Add(User user);
         void Save();
