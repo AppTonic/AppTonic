@@ -1,5 +1,6 @@
 ﻿using System;
 using AppFunc.CommonServiceLocator;
+using AppFunc.Configuration;
 using AppFunc.Examples.Shared;
 using AppFunc.Examples.Shared.Data;
 using AppFunc.Examples.Shared.Domain;
@@ -24,7 +25,22 @@ namespace AppFunc.Examples.SimpleInjector
 
             AppDispatcher.Initialize(app =>
             {
+                // Decorating the pipline AND using IoC: you will see
+                // the action pipleine below wraps any IoC decorators
+                app.GlobalPipeline(pipeline => pipeline.Decorate(handler =>
+                {
+                    Console.WriteLine("before a");
+                    handler();
+                    Console.WriteLine("after a");
+                }).Decorate(handler =>
+                {
+                    Console.WriteLine("before b");
+                    handler();
+                    Console.WriteLine("after b");
+                }), true);
+
                 app.UseCommonServiceLocator(simpleInjectorServiceLocatorAdapter);
+
             });
 
             var request = new CreateUserRequest

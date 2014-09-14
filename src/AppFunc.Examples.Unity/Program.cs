@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
 using AppFunc.CommonServiceLocator;
-using AppFunc.Configuration;
 using AppFunc.Examples.Shared.Domain;
 using AppFunc.Examples.Shared.Services;
 using Microsoft.Practices.Unity;

@@ -7,7 +7,8 @@ namespace AppFunc.Configuration
     {
         void UseDependencyResolver(IDependencyResolver dependencyResolver);
 
-        void DecorateHandlers(Func<Action, Action> pipeline);
+        void GlobalPipeline(Func<Action, Action> pipeline, bool supressValidation = false);
+
 
         void RegisterHandler<TRequest>(Action<TRequest> handler,
             Func<Action<TRequest>, Action<TRequest>> handlerConfig = null)

@@ -20,7 +20,7 @@ namespace AppFunc.Examples.PartialApplicationComposition
 
             AppDispatcher.Initialize(app =>
             {
-                app.DecorateHandlers(pipeline => pipeline.Decorate(handler =>
+                app.GlobalPipeline(pipeline => pipeline.Decorate(handler =>
                 {
                     stopwatch.Start();
                     handler();

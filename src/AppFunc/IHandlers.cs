@@ -1,6 +1,4 @@
-using System;
 using System.Threading.Tasks;
-using AppFunc;
 
 namespace AppFunc
 {
@@ -23,9 +21,6 @@ namespace AppFunc
     {
         Task<TResponse> HandleAsync(TRequest request);
     }
-
-
-
 }
 
 
