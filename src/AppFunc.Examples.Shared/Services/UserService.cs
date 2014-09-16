@@ -2,7 +2,7 @@
 
 namespace AppFunc.Examples.Shared.Services
 {
-    public class UserService : IHandle<CreateUserRequest>
+    public class UserService : IHandle<CreateUser>
     {
         private readonly IUserRepository _userRepository;
         private readonly ILogger _logger;
@@ -13,9 +13,9 @@ namespace AppFunc.Examples.Shared.Services
             _logger = logger;
         }
 
-        public void Handle(CreateUserRequest request)
+        public void Handle(CreateUser request)
         {
-            var user = User.Create(request);
+            var user = new User { Name = request.Name };
             _userRepository.Add(user);
             _userRepository.Save();
             _logger.Info("UserService: User Created");

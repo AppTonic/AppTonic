@@ -5,11 +5,11 @@ namespace AppFunc.Examples.Shared.Services
 {
     public static class UserServiceModule
     {
-        public static void CreateUser(CreateUserRequest request, Func<IUserRepository> userRepositoryFactory, ILogger logger)
+        public static void CreateUser(CreateUser request, Func<IUserRepository> userRepositoryFactory, ILogger logger)
         {
             using (var userRepository = userRepositoryFactory())
             {
-                var user = User.Create(request);
+                var user = new User { Name = request.Name };
                 userRepository.Add(user);
                 userRepository.Save();
                 logger.Info("UserServiceModule: User Created");

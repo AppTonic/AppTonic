@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="AppDispatcher.cs" />
     <Compile Include="Configuration\AppDispatcherConfigurator.cs" />
-    <Compile Include="Configuration\AppMediatorFactory.cs" />
+    <Compile Include="Configuration\AppDispatcherFactory.cs" />
     <Compile Include="Configuration\Internal\LambdaAsyncRequestHandler.cs" />
     <Compile Include="Configuration\Internal\LambdaAsyncRequestResponseHandler.cs" />
     <Compile Include="Configuration\Internal\LambdaRequestHandler.cs" />

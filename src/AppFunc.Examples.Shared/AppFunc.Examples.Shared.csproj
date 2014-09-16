@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="ConsoleLogger.cs" />
     <Compile Include="Data\InMemoryUserRepository.cs" />
-    <Compile Include="Domain\CreateUserRequest.cs" />
+    <Compile Include="Domain\CreateUser.cs" />
     <Compile Include="Domain\GetUserRequest.cs" />
     <Compile Include="Domain\IUserRepository.cs" />
     <Compile Include="Domain\User.cs" />

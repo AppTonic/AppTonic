@@ -1,5 +1,7 @@
 ﻿using System;
 using AppFunc.CommonServiceLocator;
+using AppFunc.Examples.Shared;
+using AppFunc.Examples.Shared.Data;
 using AppFunc.Examples.Shared.Domain;
 using AppFunc.Examples.Shared.Services;
 using Microsoft.Practices.Unity;
@@ -10,26 +12,26 @@ namespace AppFunc.Examples.Unity
     {
         static void Main()
         {
+            // Configure your DI container
             var container = new UnityContainer();
-            container.RegisterTypes(AllClasses.FromAssemblies(typeof(UserService).Assembly), WithMappings.FromAllInterfaces);
-            var unityServiceLocator = new UnityServiceLocator(container);
+            container.RegisterType<IUserRepository, InMemoryUserRepository>();
+            container.RegisterType<ILogger, ConsoleLogger>();
+            container.RegisterType(typeof(IHandle<CreateUser>), typeof(UserService));
+            // Create common service locator adapter
+            var unityServiceLocatorAdapter = new UnityServiceLocator(container);
 
+            // Initilaize the AppDispatcher
             AppDispatcher.Initialize(app =>
             {
-                app.UseCommonServiceLocator(unityServiceLocator);
+                app.UseCommonServiceLocator(unityServiceLocatorAdapter);
             });
 
-            var request = new CreateUserRequest
-            {
-                EmailAddress = "jane.smith@example.com",
-                FullName = "Jane Smith",
-                Username = "jsmith",
-                WebsiteUrl = "jsmith.co"
-            };
+            // Create a request
+            var request = new CreateUser { Name = "Jane Smith" };
 
+            // Handle it using the dispatcher, if DI is configured correctly
+            // the message handler in your application service will handle it.
             AppDispatcher.Handle(request);
-
-            Console.ReadLine();
         }
     }
 }

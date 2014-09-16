@@ -10,7 +10,6 @@ using SimpleInjector;
 
 namespace AppFunc.Examples.SimpleInjector
 {
-
     class Program
     {
         static void Main()
@@ -43,13 +42,7 @@ namespace AppFunc.Examples.SimpleInjector
 
             });
 
-            var request = new CreateUserRequest
-            {
-                EmailAddress = "jane.smith@example.com",
-                FullName = "Jane Smith",
-                Username = "jsmith",
-                WebsiteUrl = "jsmith.co"
-            };
+            var request = new CreateUser { Name = "Jane Smith" };
 
             AppDispatcher.Handle(request);
 

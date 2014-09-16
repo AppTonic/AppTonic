@@ -10,10 +10,10 @@ namespace AppFunc
 
         public static void Initialize(Action<IAppDispatcherConfigurator> config = null)
         {
-            _instance = AppMediatorFactory.Create(config);
+            _instance = AppDispatcherFactory.Create(config);
         }
 
-        private static IAppDispatcher Instance
+        public static IAppDispatcher Instance
         {
             get
             {

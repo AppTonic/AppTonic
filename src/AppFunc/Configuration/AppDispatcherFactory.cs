@@ -2,7 +2,7 @@ using System;
 
 namespace AppFunc.Configuration
 {
-    public static class AppMediatorFactory
+    public static class AppDispatcherFactory
     {
         public static IAppDispatcher Create(Action<IAppDispatcherConfigurator> config = null)
         {
