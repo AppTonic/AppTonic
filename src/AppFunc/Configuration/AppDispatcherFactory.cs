@@ -4,11 +4,11 @@ namespace AppFunc.Configuration
 {
     public static class AppDispatcherFactory
     {
-        public static IAppDispatcher Create(Action<IAppDispatcherConfigurator> config = null)
+        public static IAppDispatcher Create(Action<IAppDispatcherConfigurator> config)
         {
+            if (config == null) throw new ArgumentNullException("config");
             var configurator = new AppDispatcherConfigurator();
-            if (config != null)
-                config(configurator);
+            config(configurator);
             return configurator.BuildRequestDispatcher();
         }
     }

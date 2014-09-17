@@ -54,7 +54,7 @@ namespace AppFunc.Configuration
             if (handlerConfig != null)
                 handler = handlerConfig(handler);
 
-            RegisterHandler<TRequest, TResponse>(handler != null ? new LambdaAsyncRequestResponseHandler<TRequest, TResponse>(handler) : null);
+            RegisterHandler<TRequest, Task<TResponse>>(handler != null ? new LambdaAsyncRequestResponseHandler<TRequest, TResponse>(handler) : null);
         }
 
         public RequestDispatcher BuildRequestDispatcher()
