@@ -11,6 +11,7 @@ PM> Install-Package AppFunc
 ## Getting Started / Documentation
 
 Check out the [Quick Start Guide](http://appfunc.github.io/quick-start/) and reference the wiki for [documentation](https://github.com/AppFunc/AppFunc/wiki).
+
 [Example projects](https://github.com/AppFunc/AppFunc/tree/master/src) are included in the repository to help you get started.
 
 
