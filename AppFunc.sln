@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppFunc.Examples.Shared", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppFunc.Examples.SimpleInjector", "src\AppFunc.Examples.SimpleInjector\AppFunc.Examples.SimpleInjector.csproj", "{B1842AF9-46D2-4C1F-8B2B-B8358C28AFB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppFunc.Examples.Web", "src\AppFunc.Examples.Web\AppFunc.Examples.Web.csproj", "{36AFAFC6-E915-4163-8896-B4537BACB953}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,10 @@ Global
 		{B1842AF9-46D2-4C1F-8B2B-B8358C28AFB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1842AF9-46D2-4C1F-8B2B-B8358C28AFB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1842AF9-46D2-4C1F-8B2B-B8358C28AFB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36AFAFC6-E915-4163-8896-B4537BACB953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36AFAFC6-E915-4163-8896-B4537BACB953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36AFAFC6-E915-4163-8896-B4537BACB953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36AFAFC6-E915-4163-8896-B4537BACB953}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,5 +79,6 @@ Global
 		{696A7029-1556-4739-AD7E-0ECC8ADCBB6D} = {4D4E6BAF-6D65-4413-A791-77A711A6120B}
 		{E8BBD04E-BC2F-4B48-8BDC-C697D6814AED} = {4D4E6BAF-6D65-4413-A791-77A711A6120B}
 		{B1842AF9-46D2-4C1F-8B2B-B8358C28AFB3} = {4D4E6BAF-6D65-4413-A791-77A711A6120B}
+		{36AFAFC6-E915-4163-8896-B4537BACB953} = {4D4E6BAF-6D65-4413-A791-77A711A6120B}
 	EndGlobalSection
 EndGlobal
