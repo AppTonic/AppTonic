@@ -4,15 +4,27 @@ using AppFunc.Configuration;
 
 namespace AppFunc
 {
+    /// <summary>
+    /// A helper class to initialize a singleton instance of IAppDispatcher,
+    /// as well as dispatch requests to the default singleton IAppDispatcher instance, if initialized
+    /// </summary>
     public static class AppDispatcher
     {
         private static IAppDispatcher _instance;
 
+        /// <summary>
+        /// Create a static instance of IAppDispatcher (accessible from AppDispatcher.Instance). 
+        /// This is the default instance that is used by the the AppDispatcher helper class.
+        /// </summary>
+        /// <param name="config">AppDispatcher configuration</param>
         public static void Initialize(Action<IAppDispatcherConfigurator> config = null)
         {
             _instance = AppDispatcherFactory.Create(config);
         }
 
+        /// <summary>
+        /// The default singleton instance of IAppDispatcher, if configured
+        /// </summary>
         public static IAppDispatcher Instance
         {
             get
