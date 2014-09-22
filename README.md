@@ -1,4 +1,5 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/62g8m51g3491so4f)](https://ci.appveyor.com/project/CraigSmitham/appfunc)
+[![NuGet Package](http://img.shields.io/nuget/v/AppFunc.svg?style=flat)](https://www.nuget.org/packages/AppFunc)
 
 # AppFunc
 AppFunc provides a message-based mediator interface in the form of an in-process request dispatcher.
