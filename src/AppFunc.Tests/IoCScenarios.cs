@@ -2,6 +2,7 @@
 using AppFunc.CommonServiceLocator;
 using AppFunc.Configuration;
 using CommonServiceLocator.StructureMapAdapter.Unofficial;
+using Microsoft.Practices.ServiceLocation;
 using Shouldly;
 using StructureMap;
 using StructureMap.Graph;
@@ -12,21 +13,25 @@ namespace AppFunc.Tests
     public class IoCScenarios
     {
         private readonly IAppDispatcher _dispatcher;
+        private readonly IDependencyResolver _dependencyResolver;
 
         public IoCScenarios()
         {
             var serviceLocator = new StructureMapServiceLocator(new Container(c => c.Scan(s =>
             {
                 s.TheCallingAssembly();
-                s.AddAllTypesOf(typeof(IHandle<>));
-                s.AddAllTypesOf(typeof(IHandle<,>));
-                s.AddAllTypesOf(typeof(IHandleAsync<>));
-                s.AddAllTypesOf(typeof(IHandleAsync<,>));
+                //s.ConnectImplementationsToTypesClosing()
+                s.ConnectImplementationsToTypesClosing(typeof(IHandle<>));
+                s.ConnectImplementationsToTypesClosing(typeof(IHandle<,>));
+                s.ConnectImplementationsToTypesClosing(typeof(IHandleAsync<>));
+                s.ConnectImplementationsToTypesClosing(typeof(IHandleAsync<,>));
             })));
+
+            _dependencyResolver = new CommonServiceLocatorDependencyResolver(serviceLocator);
 
             _dispatcher = AppDispatcherFactory.Create(app =>
             {
-                app.UseCommonServiceLocator(serviceLocator);
+                app.UseDependencyResolver(_dependencyResolver);
             });
         }
 
@@ -76,6 +81,13 @@ namespace AppFunc.Tests
         public void ShouldThrowIfNoHandlerForAsyncRequestMessage()
         {
             Should.Throw<InvalidOperationException>(() => _dispatcher.HandleAsync(new TestAsyncRequestMessageNoHandler()));
+        }
+
+        [Fact]
+        public void ShouldNotResolveNonExistantHandler()
+        {
+            IHandle<TestRequestMessageNoHandler> shouldNotExist = null;
+            _dependencyResolver.TryGetInstance(out shouldNotExist).ShouldBe(false);
         }
 
         [Fact]

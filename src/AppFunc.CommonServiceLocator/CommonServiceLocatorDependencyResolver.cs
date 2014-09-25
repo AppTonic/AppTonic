@@ -29,27 +29,27 @@ namespace AppFunc.CommonServiceLocator
             return _serviceLocator.GetAllInstances(serviceType);
         }
 
-        public TService GetInstance<TService>()
+        public TService GetInstance<TService>() where TService : class
         {
             return _serviceLocator.GetInstance<TService>();
         }
 
-        public TService GetInstance<TService>(string key)
+        public TService GetInstance<TService>(string key) where TService : class
         {
             return _serviceLocator.GetInstance<TService>(key);
         }
 
-        public IEnumerable<TService> GetAllInstances<TService>()
+        public IEnumerable<TService> GetAllInstances<TService>() where TService : class
         {
             return _serviceLocator.GetAllInstances<TService>();
         }
 
-        public bool TryGetInstance<TService>(out TService handlerInstance)
+        public bool TryGetInstance<TService>(out TService handlerInstance) where TService : class
         {
             try
             {
                 handlerInstance = GetInstance<TService>();
-                return true;
+                return handlerInstance != null;
             }
             catch (ActivationException)
             {

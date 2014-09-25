@@ -73,6 +73,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LamdaDecoratorHelperTests.cs" />
     <Compile Include="PartialApplicationRegistrations.cs" />
     <Compile Include="IoCScenarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

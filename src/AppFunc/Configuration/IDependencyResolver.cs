@@ -9,10 +9,10 @@ namespace AppFunc.Configuration
         object GetInstance(Type serviceType, string key);
         IEnumerable<object> GetAllInstances(Type serviceType);
 
-        TService GetInstance<TService>();
-        TService GetInstance<TService>(string key);
-        IEnumerable<TService> GetAllInstances<TService>();
+        TService GetInstance<TService>() where TService : class;
+        TService GetInstance<TService>(string key) where TService : class;
+        IEnumerable<TService> GetAllInstances<TService>() where TService : class;
 
-        bool TryGetInstance<TService>(out TService handlerInstance);
+        bool TryGetInstance<TService>(out TService handlerInstance) where TService : class;
     }
 }

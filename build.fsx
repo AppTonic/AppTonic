@@ -36,7 +36,7 @@ let projectPackagingDirs =  projects |> List.map(fun p -> packagingRoot @@ p.nam
 
 let buildNumber = environVarOrDefault "APPVEYOR_BUILD_NUMBER" "0"
 // APPVEYOR_BUILD_VERSION:  MAJOR.MINOR.PATCH.BUILD_NUMBER
-let buildVersionDefault = "0.0.4.0"
+let buildVersionDefault = "0.0.8.0"
 let buildVersion = environVarOrDefault "APPVEYOR_BUILD_VERSION" buildVersionDefault
 let majorMinorPatch = split '.' buildVersion  |> Seq.take(3) |> Seq.toArray |> (fun versions -> String.Join(".", versions))
 let assemblyVersion = majorMinorPatch
@@ -107,7 +107,11 @@ Target "CreateCorePackage" (fun _ ->
 )
 
 Target "CreateCommonServiceLocatorPackage" (fun _ -> 
-    createNuGetPackage csl (withPackage "CommonServiceLocator")
+     createNuGetPackage csl 
+        (withCustomParams(fun p -> 
+            {p with 
+                Dependencies =
+                    ["AppFunc", packageVersion] }))
 )
 
 

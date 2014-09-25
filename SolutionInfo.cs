@@ -3,11 +3,11 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyProductAttribute("AppFunc")]
-[assembly: AssemblyVersionAttribute("0.0.4")]
-[assembly: AssemblyFileVersionAttribute("0.0.4.0")]
+[assembly: AssemblyVersionAttribute("0.0.7")]
+[assembly: AssemblyFileVersionAttribute("0.0.7.0")]
 [assembly: ComVisibleAttribute(false)]
 namespace System {
     internal static class AssemblyVersionInformation {
-        internal const string Version = "0.0.4";
+        internal const string Version = "0.0.7";
     }
 }
