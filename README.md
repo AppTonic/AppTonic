@@ -5,7 +5,7 @@
 AppFunc provides a message-based mediator interface in the form of an in-process request dispatcher.
 
 ```
-PM> Install-Package AppFunc
+PM> Install-Package AppFunc -Pre
 ```
 
 
