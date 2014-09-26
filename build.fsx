@@ -14,9 +14,9 @@ let appFunc= {
     name = "AppFunc"; 
     authors = authors; 
     summary = "Lightweight mediator and request dispatcher for loosley coupled message-centric application services.";
-    description ="AppFunc is a lightweight .NET framework for building loosely coupled application services.
+    description ="AppFunc is a lightweight .NET framework for building loosely coupled application services. 
 
-Using a simple message-based mediator called the AppDispatcher, AppFunc seperates your application logic from your web framework, UI, or messaging system.
+Using a simple message-based mediator called the AppDispatcher, AppFunc seperates your application logic from your web framework, UI, or messaging system. 
 
 The resulting application logic is organized by use case, not how methods are grouped in an interface, creating easily testable, maintainable and extensiable code.";
     tags = "Messaging Functional DDD Services" }
@@ -40,7 +40,7 @@ let projectPackagingDirs =  projects |> List.map(fun p -> packagingRoot @@ p.nam
 
 let buildNumber = environVarOrDefault "APPVEYOR_BUILD_NUMBER" "0"
 // APPVEYOR_BUILD_VERSION:  MAJOR.MINOR.PATCH.BUILD_NUMBER
-let buildVersionDefault = "0.1.3.0"
+let buildVersionDefault = "0.1.5.0"
 let buildVersion = environVarOrDefault "APPVEYOR_BUILD_VERSION" buildVersionDefault
 let majorMinorPatch = split '.' buildVersion  |> Seq.take(3) |> Seq.toArray |> (fun versions -> String.Join(".", versions))
 let assemblyVersion = majorMinorPatch

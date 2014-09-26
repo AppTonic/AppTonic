@@ -7,7 +7,7 @@
     <owners>@authors@</owners>
     <summary>@summary@</summary>
     <licenseUrl>https://github.com/AppFunc/AppFunc/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/AppFunc/AppFunc</projectUrl>
+    <projectUrl>http://appfunc.github.io/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>@description@</description>
     <releaseNotes>@releaseNotes@</releaseNotes>
