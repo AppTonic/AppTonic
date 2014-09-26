@@ -36,7 +36,7 @@ namespace AppFunc.Configuration
                                     && responseHandlers.TryGetValue(typeof(TResponse), out handler);
 
             if (!hasHandlerWrapper)
-                throw new InvalidOperationException(string.Format("A handler for request type '{0}' and response type '{1}' was not registered", typeof(TRequest), typeof(TResponse)));
+                throw new InvalidOperationException(string.Format("A handler for request type '{0}' and response type '{1}' was not registered. (Trying to resolve handler {2})", typeof(TRequest), typeof(TResponse), typeof(THandler)));
 
             return handler as THandler;
         }
