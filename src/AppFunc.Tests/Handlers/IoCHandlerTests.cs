@@ -2,20 +2,19 @@
 using AppFunc.CommonServiceLocator;
 using AppFunc.Configuration;
 using CommonServiceLocator.StructureMapAdapter.Unofficial;
-using Microsoft.Practices.ServiceLocation;
 using Shouldly;
 using StructureMap;
 using StructureMap.Graph;
 using Xunit;
 
-namespace AppFunc.Tests
+namespace AppFunc.Tests.Handlers
 {
-    public class IoCScenarios
+    public class IoCHandlerTests
     {
         private readonly IAppDispatcher _dispatcher;
         private readonly IDependencyResolver _dependencyResolver;
 
-        public IoCScenarios()
+        public IoCHandlerTests()
         {
             var serviceLocator = new StructureMapServiceLocator(new Container(c => c.Scan(s =>
             {
@@ -61,8 +60,8 @@ namespace AppFunc.Tests
         [Fact]
         public void ShouldHandleAsyncRequestResponse()
         {
-            var message = new TestAsyncRequestResponsetMessage { Data = "before" };
-            _dispatcher.HandleAsync<TestAsyncRequestResponsetMessage, string>(message).Result.ShouldBe("handled");
+            var message = new TestAsyncRequestResponseMessage { Data = "before" };
+            _dispatcher.HandleAsync<TestAsyncRequestResponseMessage, string>(message).Result.ShouldBe("handled");
         }
 
         [Fact]

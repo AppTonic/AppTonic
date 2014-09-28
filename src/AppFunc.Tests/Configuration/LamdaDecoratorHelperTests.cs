@@ -3,7 +3,7 @@ using AppFunc.Configuration;
 using Shouldly;
 using Xunit;
 
-namespace AppFunc.Tests
+namespace AppFunc.Tests.Configuration
 {
     public class LamdaDecoratorHelperTests
     {

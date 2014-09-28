@@ -73,12 +73,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LamdaDecoratorHelperTests.cs" />
-    <Compile Include="PartialApplicationRegistrations.cs" />
-    <Compile Include="IoCScenarios.cs" />
+    <Compile Include="DictionaryExtensions.cs" />
+    <Compile Include="Pipeline\BarPostRequestHandler.cs" />
+    <Compile Include="Pipeline\BarPostRequestResponseHandler.cs" />
+    <Compile Include="Pipeline\BarPreRequestHandler.cs" />
+    <Compile Include="Pipeline\BazPostRequestResponseHandler.cs" />
+    <Compile Include="Pipeline\BazPreRequestHandler.cs" />
+    <Compile Include="Pipeline\FooPostRequestHandler.cs" />
+    <Compile Include="Pipeline\FooPostRequestResponseHandler.cs" />
+    <Compile Include="Pipeline\FooPreRequestHandler.cs" />
+    <Compile Include="Pipeline\PostRequestHandlerBase.cs" />
+    <Compile Include="Pipeline\PreRequestHandlerBase.cs" />
+    <Compile Include="Pipeline\BazPostRequestHandler.cs" />
+    <Compile Include="Pipeline\PipelineTests.cs" />
+    <Compile Include="Configuration\LamdaDecoratorHelperTests.cs" />
+    <Compile Include="Handlers\PartialApplicationRegistrations.cs" />
+    <Compile Include="Handlers\IoCHandlerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestMessages.cs" />
+    <Compile Include="TestAsyncRequestMessage.cs" />
+    <Compile Include="TestAsyncRequestMessageNoHandler.cs" />
+    <Compile Include="TestAsyncRequestResponseMessage.cs" />
+    <Compile Include="TestAsyncRequestResponseMessageNoHandler.cs" />
     <Compile Include="TestRequestHandler.cs" />
+    <Compile Include="TestRequestMessage.cs" />
+    <Compile Include="TestRequestMessageNoHandler.cs" />
+    <Compile Include="TestRequestResponseMessage.cs" />
+    <Compile Include="TestRequestResponseMessageNoHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -96,6 +116,7 @@
       <Name>AppFunc</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 namespace AppFunc.Pipeline
 {
-    public class AsyncRequestPipelineHandler<TRequest, TResponse> : IHandleAsync<TRequest> where TRequest : IAsyncRequest
+    public class AsyncRequestPipelineHandler<TRequest> : IHandleAsync<TRequest> where TRequest : IAsyncRequest
     {
         private readonly IHandleAsync<TRequest> _inner;
         private readonly IPreRequestHandler<TRequest>[] _preRequestHandlers;

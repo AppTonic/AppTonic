@@ -3,7 +3,7 @@ using AppFunc.Configuration;
 using Shouldly;
 using Xunit;
 
-namespace AppFunc.Tests
+namespace AppFunc.Tests.Handlers
 {
     public class PartialApplicationRegistrations
     {
@@ -62,11 +62,11 @@ namespace AppFunc.Tests
         {
             var dispatcher = AppDispatcherFactory.Create(app =>
             {
-                app.RegisterHandler<TestAsyncRequestResponsetMessage, string>(m => Task.FromResult(m.Data + "-handled"));
+                app.RegisterHandler<TestAsyncRequestResponseMessage, string>(m => Task.FromResult(m.Data + "-handled"));
             });
 
 
-            dispatcher.HandleAsync<TestAsyncRequestResponsetMessage, string>(new TestAsyncRequestResponsetMessage { Data = "success" })
+            dispatcher.HandleAsync<TestAsyncRequestResponseMessage, string>(new TestAsyncRequestResponseMessage { Data = "success" })
                 .Result.ShouldBe("success-handled");
         }
     }
