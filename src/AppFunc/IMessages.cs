@@ -2,9 +2,11 @@ using System.Threading.Tasks;
 
 namespace AppFunc
 {
+    public interface IMessage { }
+
     // Request marker interfaces
-    public interface IRequest { }
-    public interface IRequest<TResponse> { }
+    public interface IRequest : IMessage { }
+    public interface IRequest<TResponse> : IMessage { }
 
     // Async request marker interfaces
     public interface IAsyncRequest : IRequest<Task> { }

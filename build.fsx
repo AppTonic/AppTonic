@@ -40,7 +40,7 @@ let projectPackagingDirs =  projects |> List.map(fun p -> packagingRoot @@ p.nam
 
 let buildNumber = environVarOrDefault "APPVEYOR_BUILD_NUMBER" "0"
 // APPVEYOR_BUILD_VERSION:  MAJOR.MINOR.PATCH.BUILD_NUMBER
-let buildVersionDefault = "0.1.5.0"
+let buildVersionDefault = "0.2.1.0"
 let buildVersion = environVarOrDefault "APPVEYOR_BUILD_VERSION" buildVersionDefault
 let majorMinorPatch = split '.' buildVersion  |> Seq.take(3) |> Seq.toArray |> (fun versions -> String.Join(".", versions))
 let assemblyVersion = majorMinorPatch

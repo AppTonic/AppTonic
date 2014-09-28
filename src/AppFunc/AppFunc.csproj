@@ -56,6 +56,13 @@
     <Compile Include="IHandlers.cs" />
     <Compile Include="IMessages.cs" />
     <Compile Include="IAppDispatcher.cs" />
+    <Compile Include="Pipeline\AsyncRequestPipelineHandler.cs" />
+    <Compile Include="Pipeline\AsyncRequestResponsePipelineHandler.cs" />
+    <Compile Include="Pipeline\IPostRequestResponseHandler.cs" />
+    <Compile Include="Pipeline\IPreRequestHandler.cs" />
+    <Compile Include="Pipeline\IPostRequestHandler.cs" />
+    <Compile Include="Pipeline\RequestPipelineHandler.cs" />
+    <Compile Include="Pipeline\RequestResponsePipelineHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Configuration\RequestDispatcher.cs" />
   </ItemGroup>
