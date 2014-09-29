@@ -7,6 +7,9 @@ namespace AppFunc.Tests
         public TestRequestMessage()
         {
             Id = Guid.NewGuid();
+            PreRequestAction = () => { };
+            HandlerAction = () => { };
+            PostRequestAction = () => { };
         }
 
         public Guid Id { get; private set; }

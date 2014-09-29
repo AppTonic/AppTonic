@@ -118,6 +118,17 @@ Target "CreateCommonServiceLocatorPackage" (fun _ ->
                     ["AppFunc", packageVersion] }))
 )
 
+Target "Test" (fun _ ->
+    //!! (@"src/AppFunc.Tests/bin/Release/AppFunc.Tests.dll")
+    !! (sprintf "./src/AppFunc.Tests/bin/%s/**/AppFunc.Tests*.dll" buildMode)
+      |> xUnit (fun p -> 
+        {p with 
+            ToolPath = "./packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe"
+            XmlOutput = true
+            Verbose = false
+            OutputDir = testResultsDir })
+)
+
 
 Target "ContinuousIntegration" DoNothing
 Target "CreatePackages" DoNothing
@@ -134,12 +145,16 @@ Target "Default" DoNothing
 "BuildApp" 
     ==>"CreateCommonServiceLocatorPackage"
         ==> "CreatePackages"
-        
+
+"Test"
+    ==> "CreatePackages"        
+
+"BuildApp"
+    ==> "Test"
 
 "BuildApp" 
     ==>"CreatePackages"
-        ==> "ContinuousIntegration" 
-
+            ==> "ContinuousIntegration" 
 
 // start build
 RunTargetOrDefault (environVarOrDefault "target" "Default")

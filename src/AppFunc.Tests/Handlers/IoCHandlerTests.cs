@@ -19,11 +19,11 @@ namespace AppFunc.Tests.Handlers
             var serviceLocator = new StructureMapServiceLocator(new Container(c => c.Scan(s =>
             {
                 s.TheCallingAssembly();
-                //s.ConnectImplementationsToTypesClosing()
                 s.ConnectImplementationsToTypesClosing(typeof(IHandle<>));
                 s.ConnectImplementationsToTypesClosing(typeof(IHandle<,>));
                 s.ConnectImplementationsToTypesClosing(typeof(IHandleAsync<>));
                 s.ConnectImplementationsToTypesClosing(typeof(IHandleAsync<,>));
+                s.WithDefaultConventions();
             })));
 
             _dependencyResolver = new CommonServiceLocatorDependencyResolver(serviceLocator);
