@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A205032C-23F3-4D0E-B2CC-EB4235DEBD65}"
+	ProjectSection(SolutionItems) = preProject
+		base.nuspec = base.nuspec
+		build.cmd = build.cmd
+		build.fsx = build.fsx
+		CONTRIBUTING.md = CONTRIBUTING.md
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+		SolutionInfo.cs = SolutionInfo.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{4D4E6BAF-6D65-4413-A791-77A711A6120B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{151BF7CF-473A-4AA5-B9AB-ED4334BC6A0D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTonic", "src\AppTonic\AppTonic.csproj", "{F3080FA9-CAC1-4B5E-B7A2-DD305E5BB0E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTonic.CommonServiceLocator", "src\AppTonic.CommonServiceLocator\AppTonic.CommonServiceLocator.csproj", "{C0F11F1B-AE2C-4655-951B-B5593D9373A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTonic.Tests", "src\AppTonic.Tests\AppTonic.Tests.csproj", "{66DB1D26-0401-45C1-832A-3162F755EA0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTonic.Examples.Shared", "src\AppTonic.Examples.Shared\AppTonic.Examples.Shared.csproj", "{E8BBD04E-BC2F-4B48-8BDC-C697D6814AED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTonic.Examples.Web", "src\AppTonic.Examples.Web\AppTonic.Examples.Web.csproj", "{36AFAFC6-E915-4163-8896-B4537BACB953}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTonic.Examples.Unity", "src\AppTonic.Examples.Unity\AppTonic.Examples.Unity.csproj", "{D0673DF3-1AC3-491C-B0D3-23013E5629B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTonic.Examples.SimpleInjector", "src\AppTonic.Examples.SimpleInjector\AppTonic.Examples.SimpleInjector.csproj", "{B1842AF9-46D2-4C1F-8B2B-B8358C28AFB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTonic.Examples.PartialApplicationComposition", "src\AppTonic.Examples.PartialApplicationComposition\AppTonic.Examples.PartialApplicationComposition.csproj", "{696A7029-1556-4739-AD7E-0ECC8ADCBB6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3080FA9-CAC1-4B5E-B7A2-DD305E5BB0E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3080FA9-CAC1-4B5E-B7A2-DD305E5BB0E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3080FA9-CAC1-4B5E-B7A2-DD305E5BB0E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3080FA9-CAC1-4B5E-B7A2-DD305E5BB0E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0F11F1B-AE2C-4655-951B-B5593D9373A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0F11F1B-AE2C-4655-951B-B5593D9373A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0F11F1B-AE2C-4655-951B-B5593D9373A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0F11F1B-AE2C-4655-951B-B5593D9373A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66DB1D26-0401-45C1-832A-3162F755EA0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66DB1D26-0401-45C1-832A-3162F755EA0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66DB1D26-0401-45C1-832A-3162F755EA0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66DB1D26-0401-45C1-832A-3162F755EA0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8BBD04E-BC2F-4B48-8BDC-C697D6814AED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8BBD04E-BC2F-4B48-8BDC-C697D6814AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8BBD04E-BC2F-4B48-8BDC-C697D6814AED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8BBD04E-BC2F-4B48-8BDC-C697D6814AED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36AFAFC6-E915-4163-8896-B4537BACB953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36AFAFC6-E915-4163-8896-B4537BACB953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36AFAFC6-E915-4163-8896-B4537BACB953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36AFAFC6-E915-4163-8896-B4537BACB953}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0673DF3-1AC3-491C-B0D3-23013E5629B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0673DF3-1AC3-491C-B0D3-23013E5629B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0673DF3-1AC3-491C-B0D3-23013E5629B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0673DF3-1AC3-491C-B0D3-23013E5629B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1842AF9-46D2-4C1F-8B2B-B8358C28AFB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1842AF9-46D2-4C1F-8B2B-B8358C28AFB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1842AF9-46D2-4C1F-8B2B-B8358C28AFB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1842AF9-46D2-4C1F-8B2B-B8358C28AFB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{696A7029-1556-4739-AD7E-0ECC8ADCBB6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{696A7029-1556-4739-AD7E-0ECC8ADCBB6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{696A7029-1556-4739-AD7E-0ECC8ADCBB6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{696A7029-1556-4739-AD7E-0ECC8ADCBB6D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E8BBD04E-BC2F-4B48-8BDC-C697D6814AED} = {4D4E6BAF-6D65-4413-A791-77A711A6120B}
+		{36AFAFC6-E915-4163-8896-B4537BACB953} = {4D4E6BAF-6D65-4413-A791-77A711A6120B}
+		{D0673DF3-1AC3-491C-B0D3-23013E5629B8} = {4D4E6BAF-6D65-4413-A791-77A711A6120B}
+		{B1842AF9-46D2-4C1F-8B2B-B8358C28AFB3} = {4D4E6BAF-6D65-4413-A791-77A711A6120B}
+		{696A7029-1556-4739-AD7E-0ECC8ADCBB6D} = {4D4E6BAF-6D65-4413-A791-77A711A6120B}
+	EndGlobalSection
+EndGlobal

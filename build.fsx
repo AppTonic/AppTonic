@@ -10,26 +10,26 @@ type Project = { name: string;  authors: List<string>; description: string; summ
 
 let authors = ["Craig Smitham"]
 
-let appFunc= { 
-    name = "AppFunc"; 
+let appTonic= { 
+    name = "AppTonic"; 
     authors = authors; 
     summary = "Lightweight mediator and request dispatcher for loosley coupled message-centric application services.";
-    description ="AppFunc is a lightweight .NET framework for building loosely coupled application services. 
+    description ="AppTonic is a lightweight .NET framework for building loosely coupled application services. 
 
-Using a simple message-based mediator called the AppDispatcher, AppFunc seperates your application logic from your web framework, UI, or messaging system. 
+Using a simple message-based mediator called the AppDispatcher, AppTonic seperates your application logic from your web framework, UI, or messaging system. 
 
 The resulting application logic is organized by use case, not how methods are grouped in an interface, creating easily testable, maintainable and extensiable code.";
     tags = "Messaging Functional DDD Services" }
 
 let csl = { 
-    name = "AppFunc.CommonServiceLocator"; 
+    name = "AppTonic.CommonServiceLocator"; 
     authors = authors; 
-    summary = "Common Service Locator integration for AppFunc";
-    description = "Common Service Locator integration for AppFunc";
-    tags = "Autofac IoC " + appFunc.tags }
+    summary = "Common Service Locator integration for AppTonic";
+    description = "Common Service Locator integration for AppTonic";
+    tags = "Autofac IoC " + appTonic.tags }
 
 
-let projects = [ appFunc; csl  ]
+let projects = [ appTonic; csl  ]
 
 let buildMode = getBuildParamOrDefault "buildMode" "Release"
 let testResultsDir = "./testresults"
@@ -40,7 +40,7 @@ let projectPackagingDirs =  projects |> List.map(fun p -> packagingRoot @@ p.nam
 
 let buildNumber = environVarOrDefault "APPVEYOR_BUILD_NUMBER" "0"
 // APPVEYOR_BUILD_VERSION:  MAJOR.MINOR.PATCH.BUILD_NUMBER
-let buildVersionDefault = "0.2.2.0"
+let buildVersionDefault = "0.2.3.0"
 let buildVersion = environVarOrDefault "APPVEYOR_BUILD_VERSION" buildVersionDefault
 let majorMinorPatch = split '.' buildVersion  |> Seq.take(3) |> Seq.toArray |> (fun versions -> String.Join(".", versions))
 let assemblyVersion = majorMinorPatch
@@ -56,14 +56,14 @@ Target "Clean" (fun _ ->
 
 Target "AssemblyInfo" (fun _ ->
     CreateCSharpAssemblyInfo "./SolutionInfo.cs"
-      [ Attribute.Product "AppFunc" 
+      [ Attribute.Product "AppTonic" 
         Attribute.Version assemblyVersion
         Attribute.FileVersion assemblyFileVersion
         Attribute.ComVisible false ]
 )
 
 Target "BuildApp" (fun _ ->
-   MSBuild null "Build" ["Configuration", buildMode] ["./AppFunc.sln"] |> Log "AppBuild-Output: "
+   MSBuild null "Build" ["Configuration", buildMode] ["./AppTonic.sln"] |> Log "AppBuild-Output: "
 )
 
 
@@ -107,7 +107,7 @@ let createNuGetPackage (project:Project) (customParams: (NuGetParams -> NuGetPar
 
 
 Target "CreateCorePackage" (fun _ -> 
-    createNuGetPackage appFunc useDefaults
+    createNuGetPackage appTonic useDefaults
 )
 
 Target "CreateCommonServiceLocatorPackage" (fun _ -> 
@@ -115,12 +115,12 @@ Target "CreateCommonServiceLocatorPackage" (fun _ ->
         (withCustomParams(fun p -> 
             {p with 
                 Dependencies =
-                    ["AppFunc", packageVersion] }))
+                    ["AppTonic", packageVersion] }))
 )
 
 Target "Test" (fun _ ->
-    //!! (@"src/AppFunc.Tests/bin/Release/AppFunc.Tests.dll")
-    !! (sprintf "./src/AppFunc.Tests/bin/%s/**/AppFunc.Tests*.dll" buildMode)
+    //!! (@"src/AppTonic.Tests/bin/Release/AppTonic.Tests.dll")
+    !! (sprintf "./src/AppTonic.Tests/bin/%s/**/AppTonic.Tests*.dll" buildMode)
       |> xUnit (fun p -> 
         {p with 
             ToolPath = "./packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe"
@@ -147,10 +147,7 @@ Target "Default" DoNothing
         ==> "CreatePackages"
 
 "Test"
-    ==> "CreatePackages"        
-
-"BuildApp"
-    ==> "Test"
+    ==> "BuildApp"
 
 "BuildApp" 
     ==>"CreatePackages"

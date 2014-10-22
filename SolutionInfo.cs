@@ -2,12 +2,12 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyProductAttribute("AppFunc")]
-[assembly: AssemblyVersionAttribute("0.2.1")]
-[assembly: AssemblyFileVersionAttribute("0.2.1.0")]
+[assembly: AssemblyProductAttribute("AppTonic")]
+[assembly: AssemblyVersionAttribute("0.2.3")]
+[assembly: AssemblyFileVersionAttribute("0.2.3.0")]
 [assembly: ComVisibleAttribute(false)]
 namespace System {
     internal static class AssemblyVersionInformation {
-        internal const string Version = "0.2.1";
+        internal const string Version = "0.2.3";
     }
 }

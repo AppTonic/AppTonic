@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F3080FA9-CAC1-4B5E-B7A2-DD305E5BB0E5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppTonic</RootNamespace>
+    <AssemblyName>AppTonic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppDispatcher.cs" />
+    <Compile Include="Configuration\AppDispatcherConfigurator.cs" />
+    <Compile Include="Configuration\AppDispatcherFactory.cs" />
+    <Compile Include="Configuration\Internal\LambdaAsyncRequestHandler.cs" />
+    <Compile Include="Configuration\Internal\LambdaAsyncRequestResponseHandler.cs" />
+    <Compile Include="Configuration\Internal\LambdaRequestHandler.cs" />
+    <Compile Include="Configuration\Internal\LambdaRequestResponseHandler.cs" />
+    <Compile Include="Configuration\Internal\Unit.cs" />
+    <Compile Include="Configuration\IAppDispatcherConfigurator.cs" />
+    <Compile Include="Configuration\IDependencyResolver.cs" />
+    <Compile Include="Configuration\LambdaDecoratorHelpers.cs" />
+    <Compile Include="IHandlers.cs" />
+    <Compile Include="IMessages.cs" />
+    <Compile Include="IAppDispatcher.cs" />
+    <Compile Include="Pipeline\AsyncRequestPipelineHandler.cs" />
+    <Compile Include="Pipeline\AsyncRequestResponsePipelineHandler.cs" />
+    <Compile Include="Pipeline\IPostRequestResponseHandler.cs" />
+    <Compile Include="Pipeline\IPreRequestHandler.cs" />
+    <Compile Include="Pipeline\IPostRequestHandler.cs" />
+    <Compile Include="Pipeline\RequestPipelineHandler.cs" />
+    <Compile Include="Pipeline\RequestResponsePipelineHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Configuration\RequestDispatcher.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

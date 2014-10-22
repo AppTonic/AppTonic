@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{66DB1D26-0401-45C1-832A-3162F755EA0F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppTonic.Tests</RootNamespace>
+    <AssemblyName>AppTonic.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator.StructureMapAdapter.Unofficial">
+      <HintPath>..\..\packages\CommonServiceLocator.StructureMapAdapter.Unofficial.3.0.4.125\lib\Net40\CommonServiceLocator.StructureMapAdapter.Unofficial.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.ServiceLocatorAdapter">
+      <HintPath>..\..\packages\CommonServiceLocator.UnityAdapter.1.0.0.41670\lib\net35\Microsoft.Practices.Unity.ServiceLocatorAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Shouldly">
+      <HintPath>..\..\packages\Shouldly.2.2.0\lib\net40\Shouldly.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\..\packages\structuremap.3.0.4.125\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4">
+      <HintPath>..\..\packages\structuremap.3.0.4.125\lib\net40\StructureMap.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="xunit, Version=1.9.2.1705, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DictionaryExtensions.cs" />
+    <Compile Include="Pipeline\BarPostRequestHandler.cs" />
+    <Compile Include="Pipeline\BarPostRequestResponseHandler.cs" />
+    <Compile Include="Pipeline\BarPreRequestHandler.cs" />
+    <Compile Include="Pipeline\BazPostRequestResponseHandler.cs" />
+    <Compile Include="Pipeline\BazPreRequestHandler.cs" />
+    <Compile Include="Pipeline\FooPostRequestHandler.cs" />
+    <Compile Include="Pipeline\FooPostRequestResponseHandler.cs" />
+    <Compile Include="Pipeline\FooPreRequestHandler.cs" />
+    <Compile Include="Pipeline\PostRequestHandlerBase.cs" />
+    <Compile Include="Pipeline\PreRequestHandlerBase.cs" />
+    <Compile Include="Pipeline\BazPostRequestHandler.cs" />
+    <Compile Include="Pipeline\PipelineTests.cs" />
+    <Compile Include="Configuration\LamdaDecoratorHelperTests.cs" />
+    <Compile Include="Handlers\PartialApplicationRegistrations.cs" />
+    <Compile Include="Handlers\IoCHandlerTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestAsyncRequestMessage.cs" />
+    <Compile Include="TestAsyncRequestMessageNoHandler.cs" />
+    <Compile Include="TestAsyncRequestResponseMessage.cs" />
+    <Compile Include="TestAsyncRequestResponseMessageNoHandler.cs" />
+    <Compile Include="TestRequestHandler.cs" />
+    <Compile Include="TestRequestMessage.cs" />
+    <Compile Include="TestRequestMessageNoHandler.cs" />
+    <Compile Include="TestRequestResponseMessage.cs" />
+    <Compile Include="TestRequestResponseMessageNoHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppTonic.CommonServiceLocator\AppTonic.CommonServiceLocator.csproj">
+      <Project>{c0f11f1b-ae2c-4655-951b-b5593d9373a3}</Project>
+      <Name>AppTonic.CommonServiceLocator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppTonic\AppTonic.csproj">
+      <Project>{f3080fa9-cac1-4b5e-b7a2-dd305e5bb0e5}</Project>
+      <Name>AppTonic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
